@@ -31,6 +31,108 @@ body {
   overflow-x: hidden;
 }
 
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #080e0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: opacity .8s ease, visibility .8s ease;
+}
+
+#splash-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-content {
+  animation: splashEnter 1s ease forwards;
+}
+
+.splash-logo {
+  width: 85px;
+  height: 85px;
+  border: 2px solid var(--green);
+  border-radius: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-family: Outfit;
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--green);
+  box-shadow: 0 0 35px #9de6a533;
+}
+
+.splash-content h1 {
+  font-family: Outfit;
+  font-size: 30px;
+  margin-top: 25px;
+  letter-spacing: 2px;
+}
+
+.splash-content h1 span {
+  color: var(--green);
+}
+
+.splash-content p {
+  color: var(--gray);
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-top: 10px;
+}
+
+.loader {
+  width: 180px;
+  height: 4px;
+  background: #ffffff18;
+  border-radius: 10px;
+  margin: 35px auto 15px;
+  overflow: hidden;
+}
+
+.loader span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--green);
+  border-radius: 10px;
+  animation: loading 2.3s ease forwards;
+}
+
+.loading-text {
+  font-size: 10px;
+  color: var(--gray);
+  letter-spacing: 2px;
+}
+
+.splash-footer {
+  position: absolute;
+  bottom: 35px;
+  color: #68756b;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+@keyframes loading {
+  to { width: 100%; }
+}
+
+@keyframes splashEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container {
   width: 88%;
   max-width: 1200px;
@@ -90,7 +192,6 @@ nav {
   border-radius: 8px;
   font-size: 18px;
 }
-
 
 .hero {
   min-height: 100vh;
@@ -165,7 +266,6 @@ nav {
   color: var(--green);
 }
 
-
 .profile {
   position: relative;
   display: flex;
@@ -200,7 +300,6 @@ nav {
   50% { transform: translateY(-12px); }
 }
 
-
 section {
   padding: 100px 0;
 }
@@ -225,7 +324,6 @@ section {
   color: var(--gray);
   margin-top: 10px;
 }
-
 
 .about-grid {
   display: grid;
@@ -280,7 +378,6 @@ section {
   font-size: 13px;
 }
 
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -315,7 +412,6 @@ section {
   font-size: 13px;
   line-height: 1.8;
 }
-
 
 .project-grid {
   display: grid;
@@ -352,7 +448,6 @@ section {
   font-size: 14px;
 }
 
-
 .education {
   border-left: 2px solid var(--green);
   padding: 5px 0 5px 30px;
@@ -384,7 +479,6 @@ section {
   color: var(--gray);
   font-size: 14px;
 }
-
 
 .contact-box {
   background: linear-gradient(120deg,#1a3020,#111c15);
@@ -425,7 +519,6 @@ section {
   color: #07110a;
 }
 
-
 footer {
   text-align: center;
   padding: 30px;
@@ -433,7 +526,6 @@ footer {
   color: var(--gray);
   font-size: 12px;
 }
-
 
 .reveal {
   opacity: 0;
@@ -445,7 +537,6 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 @media(max-width: 850px) {
   .hero {
@@ -507,6 +598,24 @@ footer {
 
 <body>
 
+<div id="splash-screen">
+  <div class="splash-content">
+    <div class="splash-logo">AL</div>
+    <h1>MHD <span>AL HABSYI</span></h1>
+    <p>PERSONAL PORTFOLIO</p>
+
+    <div class="loader">
+      <span></span>
+    </div>
+
+    <div class="loading-text">INITIALIZING EXPERIENCE...</div>
+  </div>
+
+  <div class="splash-footer">
+    © 2026 MHD AL HABSYI
+  </div>
+</div>
+
 <nav>
   <div class="container navbar">
     <div class="logo">MHD<span>.</span></div>
@@ -524,9 +633,7 @@ footer {
   </div>
 </nav>
 
-
 <header class="container hero" id="home">
-
   <div class="reveal">
     <span class="badge">WELCOME TO MY PORTFOLIO</span>
 
@@ -548,13 +655,10 @@ footer {
   <div class="profile reveal">
     <img src="JAY XAUU.jpeg" alt="Foto MHD AL HABSYI">
   </div>
-
 </header>
-
 
 <section id="about">
   <div class="container">
-
     <div class="section-title reveal">
       <small>GET TO KNOW ME</small>
       <h2>About Me</h2>
@@ -562,7 +666,6 @@ footer {
     </div>
 
     <div class="about-grid">
-
       <div class="card reveal">
         <h3>Who Am I?</h3>
         <p>
@@ -576,38 +679,31 @@ footer {
 
       <div class="card reveal">
         <h3>Personal Information</h3>
-
         <div class="info">
           <div>
             <small>Nama</small>
             <strong>MHD AL HABSYI</strong>
           </div>
-
           <div>
             <small>Profesi</small>
             <strong>Student</strong>
           </div>
-
           <div>
             <small>Minat</small>
             <strong>Technology</strong>
           </div>
-
           <div>
             <small>Hobi</small>
             <strong>Adventure</strong>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-
 <section id="skills">
   <div class="container">
-
     <div class="section-title reveal">
       <small>WHAT I CAN DO</small>
       <h2>My Skills</h2>
@@ -615,7 +711,6 @@ footer {
     </div>
 
     <div class="skills-grid">
-
       <div class="skill-card reveal">
         <div class="skill-icon">💻</div>
         <h3>Web Development</h3>
@@ -651,15 +746,12 @@ footer {
         <h3>Adventure</h3>
         <p>Menyukai kegiatan eksplorasi dan pengalaman baru.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-
 <section id="projects">
   <div class="container">
-
     <div class="section-title reveal">
       <small>MY CREATIONS</small>
       <h2>My Projects</h2>
@@ -667,7 +759,6 @@ footer {
     </div>
 
     <div class="project-grid">
-
       <div class="project-card reveal">
         <small>PROJECT 01</small>
         <h3>Personal Website</h3>
@@ -691,15 +782,12 @@ footer {
         <h3>Trading Analysis</h3>
         <p>Mempelajari struktur market dan analisis chart forex.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-
 <section id="education">
   <div class="container">
-
     <div class="section-title reveal">
       <small>MY JOURNEY</small>
       <h2>Education</h2>
@@ -707,7 +795,6 @@ footer {
     </div>
 
     <div class="card reveal">
-
       <div class="education">
         <div class="education-item">
           <h3>Pendidikan Saat Ini</h3>
@@ -719,7 +806,6 @@ footer {
           <p>Belajar programming, teknologi, dan kreativitas digital.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -727,7 +813,6 @@ footer {
 
 <section id="contact">
   <div class="container">
-
     <div class="contact-box reveal">
       <h2>Let's Connect Together!</h2>
 
@@ -737,15 +822,14 @@ footer {
       </p>
 
       <div class="socials">
-        
-        <a href="https://www.instagram.com/cmz_jayyy?obrf=cHA1MW9tbmU2YnE0" target="_blank">Instagram ↗</a>
-        <a href="https://github.com/akunajay19-debug" target="_blank">GitHub ↗</a>
+        <a href="https://www.instagram.com/cmz_jayyy?obrf=cHA1MW9tbmU2YnE0" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a href="https://github.com/akunajay19-debug" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         <a href="mailto:emailkamu@jayhasbi860.com">Email ↗</a>
       </div>
     </div>
-
   </div>
 </section>
+
 
 <footer>
   <p>© 2026 MHD AL HABSYI | Personal Portfolio</p>
@@ -753,6 +837,11 @@ footer {
 </footer>
 
 <script>
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("splash-screen").classList.add("hide");
+  }, 2500);
+});
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
@@ -779,7 +868,6 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".reveal").forEach(element => {
   observer.observe(element);
 });
-
 </script>
 
 </body>
